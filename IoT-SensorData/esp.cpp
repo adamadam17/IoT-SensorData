@@ -14,15 +14,15 @@ Adafruit_BME280 bme;      // BME280
 BH1750 lightMeter;        // BH1750
 
 // MQTT nastavenia
-const char* mqtt_server = "192.168.0.243";  // IP adresa tvojho MQTT brokera
+const char* mqtt_server = "192.168.***.***";  // IP adresa tvojho MQTT brokera
 const int mqtt_port = 1883;  // Port MQTT brokera
 
 WiFiClient espClient;
 PubSubClient client(espClient);
 
 // WiFi pripojenie
-const char* ssid = "Adam";  // WiFi SSID
-const char* password = "tibor217";  // WiFi heslo
+const char* ssid = "****";  // WiFi SSID
+const char* password = "****";  // WiFi heslo
 
 void connectWiFi() {
   Serial.print("Pripojenie na WiFi...");
@@ -114,7 +114,7 @@ void loop() {
   sendData();
 
   // Prechod do režimu spánku na 5 minut
-  Serial.println("Prechádzam do režimu spánku na  minut...");
+  Serial.println("Prechádzam do režimu spánku na 30 minut...");
   delay(200); // Krátke oneskorenie na spracovanie pred spánkom
   esp_sleep_enable_timer_wakeup(30*60*1000000); // Nastavenie wake-up časovača
   esp_deep_sleep_start(); // Prechod do hlbokého spánku
